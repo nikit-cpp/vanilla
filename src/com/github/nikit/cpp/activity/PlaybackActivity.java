@@ -20,7 +20,7 @@
  * THE SOFTWARE.
  */
 
-package org.kreed.vanilla;
+package com.github.nikit.cpp.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -42,6 +42,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.Toast;
+import org.kreed.vanilla.*;
 
 /**
  * Base activity for activities that contain playback controls. Handles
@@ -51,7 +52,7 @@ import android.widget.Toast;
 public abstract class PlaybackActivity extends Activity
 	implements Handler.Callback,
 	           View.OnClickListener,
-	           CoverView.Callback
+        CoverView.Callback
 {
 	private Action mUpAction;
 	private Action mDownAction;
@@ -220,7 +221,7 @@ public abstract class PlaybackActivity extends Activity
 		}
 	}
 
-	protected void setState(final int state)
+	public void setState(final int state)
 	{
 		mLastStateEvent = SystemClock.uptimeMillis();
 
@@ -268,7 +269,7 @@ public abstract class PlaybackActivity extends Activity
 			mCoverView.querySongs(PlaybackService.get(this));
 	}
 
-	protected void setSong(final Song song)
+	public void setSong(final Song song)
 	{
 		mLastSongEvent = SystemClock.uptimeMillis();
 		runOnUiThread(new Runnable() {

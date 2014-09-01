@@ -27,6 +27,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageButton;
+import com.github.nikit.cpp.activity.FullPlaybackActivity;
+import com.github.nikit.cpp.activity.PlaybackActivity;
 
 /**
  * Compact playback activity that displays itself like a dialog. That is, the

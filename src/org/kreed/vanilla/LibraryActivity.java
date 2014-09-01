@@ -60,8 +60,12 @@ import android.widget.ListView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.github.nikit.cpp.activity.FullPlaybackActivity;
+import com.github.nikit.cpp.activity.PlaybackActivity;
 import com.viewpagerindicator.TabPageIndicator;
 import java.io.File;
+import java.util.UnknownFormatConversionException;
+
 import junit.framework.Assert;
 
 /**
@@ -754,8 +758,12 @@ public class LibraryActivity
 	{
 		QueryTask query = buildQueryFromIntent(intent, true, false);
 		int count = Playlist.addToPlaylist(getContentResolver(), playlistId, query);
-
-		String message = getResources().getQuantityString(R.plurals.added_to_playlist, count, count, intent.getStringExtra("playlistName"));
+        String message;
+        try {
+            message = getResources().getQuantityString(R.plurals.added_to_playlist, count, count, intent.getStringExtra("playlistName"));
+        }catch(UnknownFormatConversionException e)      {
+            message = "Missed translation in translatable.xml!";
+        }
 		Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
 	}
 

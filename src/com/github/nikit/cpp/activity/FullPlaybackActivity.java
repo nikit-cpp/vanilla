@@ -20,7 +20,7 @@
  * THE SOFTWARE.
  */
 
-package org.kreed.vanilla;
+package com.github.nikit.cpp.activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -43,6 +43,7 @@ import android.widget.SeekBar;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import org.kreed.vanilla.*;
 
 /**
  * The primary playback screen with playback controls and large cover display.
