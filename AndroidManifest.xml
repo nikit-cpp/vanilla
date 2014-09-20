@@ -11,7 +11,7 @@
 		android:icon="@drawable/icon"
 		android:label="@string/app_name" >
 		<activity
-			android:name="com.github.nikit.cpp.activity.FullPlaybackActivity"
+			android:name="com.github.nikit.cpp.activity.FullPlaybackActivity_"
 			android:theme="@style/Playback"
 			android:launchMode="singleTask">
         <!-- Объявление default activity -->
