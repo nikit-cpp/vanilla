@@ -16,7 +16,7 @@ Deploing to phone
 `[ERROR]`  
 Возникает из-за отсутствия артефакта `com.android.support:support-v4:jar:19.0.1` в maven-central из-за политики Google. Решается одним из 2-х способов:  
  * скачиванием Android Support Repository из Android SDK Manager:  
-![](http://img-fotki.yandex.ru/get/9480/165433899.0/0_e6a29_a835dd9_orig)  
+![](http://img-fotki.yandex.ru/get/6741/165433899.1/0_1242a3_78c70b2a_orig)  
 и добавлением в pom.xml дополнительного репозитория, в url которого -- file://путь_до_AndroidSupportRepository:  
 `<repositories>`  
 `	<repository>`  
