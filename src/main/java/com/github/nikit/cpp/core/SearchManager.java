@@ -2,14 +2,14 @@ package com.github.nikit_cpp;
 import java.util.List;
 
 /**
- * позволяет выбрать, где именно(в текущем плейлисте, по исполнителям, ... искать)
- * @author Ник
+ * РїРѕР·РІРѕР»СЏРµС‚ РІС‹Р±СЂР°С‚СЊ, РіРґРµ РёРјРµРЅРЅРѕ(РІ С‚РµРєСѓС‰РµРј РїР»РµР№Р»РёСЃС‚Рµ, РїРѕ РёСЃРїРѕР»РЅРёС‚РµР»СЏРј, ... РёСЃРєР°С‚СЊ)
+ * @author РќРёРє
  *
  */
 public interface SearchManager {
 	/**
-	 * Ищет по области видимости scope
-	 * @param scope -- EditableTag или NonEditableInfo
+	 * РС‰РµС‚ РїРѕ РѕР±Р»Р°СЃС‚Рё РІРёРґРёРјРѕСЃС‚Рё scope
+	 * @param scope -- EditableTag РёР»Рё NonEditableInfo
 	 */
 	public void setScope(Object[] scope);
 	public List<Song> search(String string);

@@ -3,8 +3,8 @@ package com.github.nikit_cpp;
 public interface PlaylistManager extends NextPrevious {
 	
 	/**
-	 * Создаёт плейлист по признаку by и помещает его на вершину стека
-	 * @param by - EditableTag, Date(для хронологического списка) или File (папка)
+	 * РЎРѕР·РґР°С‘С‚ РїР»РµР№Р»РёСЃС‚ РїРѕ РїСЂРёР·РЅР°РєСѓ by Рё РїРѕРјРµС‰Р°РµС‚ РµРіРѕ РЅР° РІРµСЂС€РёРЅСѓ СЃС‚РµРєР°
+	 * @param by - EditableTag, Date(РґР»СЏ С…СЂРѕРЅРѕР»РѕРіРёС‡РµСЃРєРѕРіРѕ СЃРїРёСЃРєР°) РёР»Рё File (РїР°РїРєР°)
 	 * @return
 	 */
 	public Playlist makeNewPlaylistBy(Object by, PlaylistSource from);

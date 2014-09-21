@@ -15,15 +15,15 @@ import org.kreed.vanilla.R;
 @EActivity(R.layout.full_playback)
 public class FullPlaybackActivity extends Activity {
 
-    /*@ViewById
-    TextView elapsed;*/
+    @ViewById
+    TextView artist;
 
     /*@Override public void onCreate(Bundle state) {
         super.onCreate(state);
         setContentView( R.layout.full_playback);
     }*/
-    /*@AfterViews
+    @AfterViews
     void initViews() {
-        elapsed.setText("elapsed");
-    }*/
+        artist.setText("MontRose");
+    }
 }

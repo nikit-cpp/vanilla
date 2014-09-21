@@ -10,8 +10,8 @@ public interface Playlist extends NextPrevious {
 	
 	/**
 	 * 
-	 * @param sorter -- EditableTag или NonEditableInfo
-	 * @param direction -- в прямом или обратном порядке
+	 * @param sorter -- EditableTag РёР»Рё NonEditableInfo
+	 * @param direction -- РІ РїСЂСЏРјРѕРј РёР»Рё РѕР±СЂР°С‚РЅРѕРј РїРѕСЂСЏРґРєРµ
 	 */
 	public void sortBy(Object sorter, boolean direction);
 }

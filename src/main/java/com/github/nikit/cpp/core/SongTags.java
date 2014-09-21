@@ -3,7 +3,7 @@ package com.github.nikit_cpp;
 import java.util.Date;
 
 public interface SongTags {
-	// TODO автоматически сделать геттеры (мместо сеттеров -- конструктор для EditableTag и NonEditableInfo
+	// TODO Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё СЃРґРµР»Р°С‚СЊ РіРµС‚С‚РµСЂС‹ (РјРјРµСЃС‚Рѕ СЃРµС‚С‚РµСЂРѕРІ -- РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РґР»СЏ EditableTag Рё NonEditableInfo
 	String getName();
 	String getAlbum();
 	String getArtist();

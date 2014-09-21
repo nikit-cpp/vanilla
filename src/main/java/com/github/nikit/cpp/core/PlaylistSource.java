@@ -1,8 +1,8 @@
 package com.github.nikit_cpp;
 
 /**
- * »ÒÚÓ˜ÌËÍ ‰Îˇ ÒÓÁ‰‡ÌËˇ ÔÎÂÈÎËÒÚ‡. –Â‡ÎËÁ‡ˆËË -> œ‡ÔÍ‡, DataStream(ËÌÚÂÌÂÚ-‡‰ËÓ), Http. May be vkontakte
- * @author ÕËÍ
+ * –ò—Å—Ç–æ—á–Ω–∏–∫ –¥–ª—è —Å–æ–∑–¥–∞–Ω–∏—è –ø–ª–µ–π–ª–∏—Å—Ç–∞. –†–µ–∞–ª–∏–∑–∞—Ü–∏–∏ -> –ü–∞–ø–∫–∞, DataStream(–∏–Ω—Ç–µ—Ä–Ω–µ—Ç-—Ä–∞–¥–∏–æ), Http. May be vkontakte
+ * @author –ù–∏–∫
  *
  */
 public interface PlaylistSource {

@@ -1,8 +1,8 @@
 package com.github.nikit_cpp;
 
 /**
- * Позволяет искать инфу о песне с помощью несколькиз TagAdder'ов
- * @author Ник
+ * РџРѕР·РІРѕР»СЏРµС‚ РёСЃРєР°С‚СЊ РёРЅС„Сѓ Рѕ РїРµСЃРЅРµ СЃ РїРѕРјРѕС‰СЊСЋ РЅРµСЃРєРѕР»СЊРєРёР· TagAdder'РѕРІ
+ * @author РќРёРє
  *
  */
 public interface TagsAdderManager {

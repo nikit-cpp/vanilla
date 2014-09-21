@@ -3,16 +3,16 @@ import java.util.Map;
 
 
 public interface TagsAdder {
-	// public void setSearchProvider(SearchProvider sp); // <- в конструкторе
+	// public void setSearchProvider(SearchProvider sp); // <- РІ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂРµ
 	
 	/**
-	 * Находит в интернетах доп. информацию о песне
+	 * РќР°С…РѕРґРёС‚ РІ РёРЅС‚РµСЂРЅРµС‚Р°С… РґРѕРї. РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ РїРµСЃРЅРµ
 	 * @param song
 	 */
 	public SongTags searchTagsFor(Song s);
 	
 	/**
-	 * Записывает выбранные теги в песню
+	 * Р—Р°РїРёСЃС‹РІР°РµС‚ РІС‹Р±СЂР°РЅРЅС‹Рµ С‚РµРіРё РІ РїРµСЃРЅСЋ
 	 * @param song
 	 * @param tags
 	 */

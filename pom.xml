@@ -25,13 +25,6 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>org.robolectric</groupId>
-            <artifactId>robolectric</artifactId>
-            <version>2.3</version>
-            <!-- обязательно тест, иначе андроид-аннотации сломаются -->
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>org.androidannotations</groupId>
             <artifactId>androidannotations</artifactId>
             <version>${androidannotations.version}</version>
@@ -41,6 +34,20 @@
             <groupId>org.androidannotations</groupId>
             <artifactId>androidannotations-api</artifactId>
             <version>${androidannotations.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.robolectric</groupId>
+            <artifactId>robolectric</artifactId>
+            <version>2.3</version>
+            <!-- обязательно тест, иначе андроид-аннотации сломаются -->
+            <scope>test</scope>
         </dependency>
     </dependencies>
     <build>

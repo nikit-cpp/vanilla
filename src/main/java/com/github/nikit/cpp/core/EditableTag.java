@@ -1,7 +1,7 @@
 package com.github.nikit_cpp;
 
 /**
- * @author Ник
+ * @author РќРёРє
  *
  */
 public enum EditableTag {
