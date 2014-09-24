@@ -1,4 +1,4 @@
-package com.github.nikit_cpp;
+package com.github.nikit.cpp.core;
 
 /**
  * Источник для создания плейлиста. Реализации -> Папка, DataStream(интернет-радио), Http. May be vkontakte
@@ -6,5 +6,5 @@ package com.github.nikit_cpp;
  *
  */
 public interface PlaylistSource {
-	public Song[] getSongs();
+	public Playback[] getSongs();
 }

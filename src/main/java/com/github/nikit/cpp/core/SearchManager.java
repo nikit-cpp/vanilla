@@ -1,4 +1,4 @@
-package com.github.nikit_cpp;
+package com.github.nikit.cpp.core;
 import java.util.List;
 
 /**
@@ -12,5 +12,5 @@ public interface SearchManager {
 	 * @param scope -- EditableTag или NonEditableInfo
 	 */
 	public void setScope(Object[] scope);
-	public List<Song> search(String string);
+	public List<Playback> search(String string);
 }

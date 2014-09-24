@@ -1,20 +1,21 @@
-package com.github.nikit_cpp;
-import java.util.Map;
+package com.github.nikit.cpp.core;
+
+import com.github.nikit.cpp.core.data.Song;
 
 
-public interface TagsAdder {
+public interface TagEditor {
 	// public void setSearchProvider(SearchProvider sp); // <- в конструкторе
 	
 	/**
 	 * Находит в интернетах доп. информацию о песне
 	 * @param song
 	 */
-	public SongTags searchTagsFor(Song s);
+	public Song searchTagsFor(Playback song);
 	
 	/**
 	 * Записывает выбранные теги в песню
-	 * @param song
-	 * @param tags
-	 */
-	public void updateTags(Song song, Map<EditableTag, Object> tags);
+     * @param input
+     * @param newTags
+     */
+	public void updateTags(Playback input, Playback newTags);
 }

@@ -1,4 +1,4 @@
-package com.github.nikit_cpp;
+package com.github.nikit.cpp.core;
 
 public interface Time {
 

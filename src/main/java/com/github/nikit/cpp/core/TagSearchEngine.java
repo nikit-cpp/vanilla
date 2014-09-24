@@ -1,10 +1,10 @@
-package com.github.nikit_cpp;
+package com.github.nikit.cpp.core;
 
 /**
  * Позволяет искать инфу о песне с помощью несколькиз TagAdder'ов
  * @author Ник
  *
  */
-public interface TagsAdderManager {
+public interface TagSearchEngine {
 
 }

@@ -1,4 +1,6 @@
-package com.github.nikit_cpp;
+package com.github.nikit.cpp.core;
+
+import com.github.nikit.cpp.core.data.Playlist;
 
 public interface PlaylistManager extends NextPrevious {
 	
@@ -13,6 +15,6 @@ public interface PlaylistManager extends NextPrevious {
 	public int getPlaylistCount();
 	public Playlist getPlaylistByNumber(int number);
 	
-	public void deletePlaylaisByNumber(int number);
+	public void deletePlaylistByNumber(int number);
 	public void deleteCurrentPlaylist();
 }

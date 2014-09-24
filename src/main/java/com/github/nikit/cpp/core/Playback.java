@@ -1,6 +1,6 @@
-package com.github.nikit_cpp;
+package com.github.nikit.cpp.core;
 
-public interface Song extends SongTags {
+public interface Playback {
 	void play();
 	void pause();
 
