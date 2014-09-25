@@ -1,8 +1,12 @@
 package com.github.nikit.cpp.core.data.impl;
 
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import com.github.nikit.cpp.core.Playback;
 import com.github.nikit.cpp.core.data.Playlist;
 import com.github.nikit.cpp.core.data.Song;
+import org.androidannotations.annotations.EBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,8 +14,9 @@ import java.util.List;
 /**
  * Created by Ник on 23.09.14.
  */
+@EBean
 public class PlaylistImpl implements Playlist {
-    private List<Playback> songs = new ArrayList<Playback>();
+    private List<Song> songs = new ArrayList<Song>();
     private int current=0;
 
     public PlaylistImpl(){
@@ -25,12 +30,12 @@ public class PlaylistImpl implements Playlist {
     }
 
     @Override
-    public Playback getSongByNumber(int number) {
+    public Song getSongByNumber(int number) {
         return songs.get(number);
     }
 
     @Override
-    public Playback getCurrentSong() {
+    public Song getCurrentSong() {
         return songs.get(current);
     }
 
@@ -40,7 +45,7 @@ public class PlaylistImpl implements Playlist {
     }
 
     @Override
-    public void addSongToPosition(int position, Playback song) {
+    public void addSongToPosition(int position, Song song) {
         songs.add(position, song);
     }
 
@@ -55,6 +60,11 @@ public class PlaylistImpl implements Playlist {
     }
 
     @Override
+    public List<Song> findAll() {
+        return songs;
+    }
+
+    @Override
     public void next() {
         current++;
     }
@@ -63,4 +73,6 @@ public class PlaylistImpl implements Playlist {
     public void previous() {
         current--;
     }
+
+
 }
