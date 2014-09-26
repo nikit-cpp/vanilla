@@ -11,7 +11,6 @@ import org.androidannotations.annotations.AfterInject;
 import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EBean;
 import org.androidannotations.annotations.RootContext;
-import com.github.nikit.cpp.aa.PersonItemView_;
 
 import java.util.List;
 
@@ -21,42 +20,42 @@ import java.util.List;
 @EBean
 public class PlayListAdapter extends BaseAdapter {
 
-    List<Song> persons;
+    List<Song> songs;
 
     @Bean(PlaylistImpl.class)
-    Playlist personFinder;
+    Playlist songFinder;
 
     @RootContext
     Context context;
 
     @AfterInject
     void initAdapter() {
-        persons = personFinder.findAll();
+        songs = songFinder.findAll();
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        PersonItemView personItemView;
+        PlaylistItemView playlistItemView;
         if (convertView == null) {
-            personItemView = PersonItemView_.build(context);
+            playlistItemView = PlaylistItemView_.build(context);
         } else {
-            personItemView = (PersonItemView) convertView;
+            playlistItemView = (PlaylistItemView) convertView;
         }
 
-        personItemView.bind(getItem(position));
+        playlistItemView.bind(getItem(position));
 
-        return personItemView;
+        return playlistItemView;
     }
 
     @Override
     public int getCount() {
-        return persons.size();
+        return songs.size();
     }
 
     @Override
     public Song getItem(int position) {
-        return persons.get(position);
+        return songs.get(position);
     }
 
     @Override

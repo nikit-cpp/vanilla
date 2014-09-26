@@ -12,7 +12,7 @@ import org.kreed.vanilla.R;
  * Created by Ник on 25.09.14.
  */
 @EViewGroup(R.layout.library_song_item)
-public class PersonItemView extends LinearLayout {
+public class PlaylistItemView extends LinearLayout {
 
     @ViewById
     TextView nameView;
@@ -20,7 +20,7 @@ public class PersonItemView extends LinearLayout {
     @ViewById
     TextView artistView;
 
-    public PersonItemView(Context context) {
+    public PlaylistItemView(Context context) {
         super(context);
     }
 

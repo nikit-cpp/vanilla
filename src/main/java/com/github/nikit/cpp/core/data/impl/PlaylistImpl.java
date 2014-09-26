@@ -23,6 +23,9 @@ public class PlaylistImpl implements Playlist {
         Song s1 = new SongImpl("AC/DC", "Big gun", "Big gun album");
         Song s2 = new SongImpl("Black Sabbath", "No Strange To Love", "Seventh Star");
         Song s3 = new SongImpl("Ken Hensley", "Out of my control", "Running blind");
+        songs.add(s1);
+        songs.add(s2);
+        songs.add(s3);
     }
     @Override
     public int getSongsCount() {
