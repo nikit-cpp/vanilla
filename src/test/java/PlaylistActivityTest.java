@@ -1,3 +1,4 @@
+import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.github.nikit.cpp.activity.FullPlaybackActivity;
@@ -10,10 +11,11 @@ import org.junit.runner.RunWith;
 import org.kreed.vanilla.R;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
+import org.robolectric.shadows.ShadowListView;
 import org.robolectric.shadows.ShadowTextView;
+import static org.fest.assertions.api.Assertions.assertThat;
 
 import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
 
 @RunWith(RobolectricTestRunner.class)
 public class PlaylistActivityTest {
@@ -27,8 +29,14 @@ public class PlaylistActivityTest {
 
     @Test
     public void shouldHaveHappySmiles() throws Exception {
-        /*ListView listContent = (ListView) activity.findViewById(R.layout.library_content);
-        ShadowTextView shadowPivotalLogo = Robolectric.shadowOf(listContent);
-        assertThat(shadowPivotalLogo.innerText(), equalTo("MontRose"));  */
+        ListView listView = new ListView(Robolectric.application);
+        ListView listContent = (ListView) activity.findViewById(R.id.listContent);
+        ShadowListView shadowedList = Robolectric.shadowOf(listContent);
+        //assertThat(shadowedList.findItemContainingText("Non-existent item").);
+
+        System.out.println(shadowedList);
+        View item1 = shadowedList.findItemContainingText("Big gun");
+        assertThat(item1).isNotNull();
+        assertThat(item1).isSameAs(listView.getChildAt(0));
     }
 } 
