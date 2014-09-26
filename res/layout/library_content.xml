@@ -33,8 +33,12 @@ THE SOFTWARE.
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/search_background"
-            android:layout_weight="1" >
-        <include layout="@layout/listview"/>
+            android:layout_weight="1">
+        <ListView android:id="@+id/listContent"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:layout_weight="1"
+                  android:drawSelectorOnTop="false"/>
     </LinearLayout>
 	<!-- <ViewPager
 		android:id="@+id/pager"
