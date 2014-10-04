@@ -20,12 +20,6 @@ public class PlaylistImpl implements Playlist {
     private int current=0;
 
     public PlaylistImpl(){
-        Song s1 = new SongImpl("AC/DC", "Big gun", "Big gun album");
-        Song s2 = new SongImpl("Black Sabbath", "No Strange To Love", "Seventh Star");
-        Song s3 = new SongImpl("Ken Hensley", "Out of my control", "Running blind");
-        songs.add(s1);
-        songs.add(s2);
-        songs.add(s3);
     }
     @Override
     public int getSongsCount() {
@@ -50,6 +44,11 @@ public class PlaylistImpl implements Playlist {
     @Override
     public void addSongToPosition(int position, Song song) {
         songs.add(position, song);
+    }
+
+    @Override
+    public void addSong(Song song) {
+        songs.add(song);
     }
 
     @Override

@@ -25,6 +25,10 @@ public class PlayListAdapter extends BaseAdapter {
     @Bean(PlaylistImpl.class)
     Playlist songFinder;
 
+    public Playlist getPlaylist(){
+        return songFinder;
+    }
+
     @RootContext
     Context context;
 

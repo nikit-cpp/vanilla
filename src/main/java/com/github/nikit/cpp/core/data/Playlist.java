@@ -13,6 +13,7 @@ public interface Playlist extends NextPrevious {
     void setCurrentSong(int newCurrentNumber);
 
     public void addSongToPosition(int position, Song song);
+    public void addSong(Song song);
 	public void deleteSongByNumber(int number);
 	
 	/**

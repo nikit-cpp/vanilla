@@ -1,10 +1,13 @@
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
+import com.github.nikit.cpp.aa.PlayListAdapter;
 import com.github.nikit.cpp.activity.FullPlaybackActivity;
 import com.github.nikit.cpp.activity.FullPlaybackActivity_;
 import com.github.nikit.cpp.activity.LibraryActivity;
 import com.github.nikit.cpp.activity.LibraryActivity_;
+import com.github.nikit.cpp.core.data.Song;
+import com.github.nikit.cpp.core.data.impl.SongImpl;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Ignore;
@@ -29,6 +32,20 @@ public class PlaylistActivityTest {
     public void setup() {
         activity = Robolectric.buildActivity(LibraryActivity_.class).create().get();
         listContent = (ListView) activity.findViewById(R.id.listContent);
+
+        Song s1 = new SongImpl("AC/DC", "Big gun", "Big gun album");
+        Song s2 = new SongImpl("Black Sabbath", "No Strange To Love", "Seventh Star");
+        Song s3 = new SongImpl("Ken Hensley", "Out of my control", "Running blind");
+
+        PlayListAdapter adapter = (PlayListAdapter)listContent.getAdapter();
+
+        adapter.getPlaylist().addSong(s1);
+        adapter.getPlaylist().addSong(s2);
+        adapter.getPlaylist().addSong(s3);
+
+        // также используется для динамического добавления элементов
+        // http://stackoverflow.com/questions/4540754/dynamically-add-elements-to-a-listview-android
+        adapter.notifyDataSetChanged();
     }
 
     @Ignore
