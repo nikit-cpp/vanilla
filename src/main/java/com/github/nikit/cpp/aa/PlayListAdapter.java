@@ -47,7 +47,6 @@ public class PlayListAdapter extends BaseAdapter {
 
     @AfterInject
     public void initAdapter() {
-        //songs = playlist.findAll();
         try {
             playlist = plm.makeNewPlaylistBy(CreateFrom.DIRECTORY, src);
             songs = playlist.findAll();
@@ -73,8 +72,9 @@ public class PlayListAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        if(songs==null)
-            return 0;
+        // Раскомментировывать разрешается только в случае крайней необходимости
+        /*if(songs==null)
+            return 0;*/
         return songs.size();
     }
 

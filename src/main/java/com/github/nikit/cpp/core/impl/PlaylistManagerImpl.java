@@ -32,10 +32,8 @@ public class PlaylistManagerImpl implements PlaylistManager {
                     break;
                 }
                 for(File fs: fSongs){
-                    //for(File ss: fs.listFiles()) {
-                        Song s = new SongImpl(fs.getAbsolutePath(), fs.getName(), "Album");
-                        playlist.addSong(s);
-                    //}
+                    Song s = new SongImpl(fs.getAbsolutePath(), fs.getName(), "Album");
+                    playlist.addSong(s);
                 }
                 playlists.add(playlist);
                 break;

@@ -27,14 +27,18 @@ public class PlaylistActivityFilesytemTest {
 
     private LibraryActivity activity;
     private ListView listContent;
+    private PlayListAdapter adapter;
+
 
     @Before
     public void setup() {
         activity = Robolectric.buildActivity(LibraryActivity_.class).create().get();
         listContent = (ListView) activity.findViewById(R.id.listContent);
+        adapter = (PlayListAdapter)listContent.getAdapter();
+    }
 
-        PlayListAdapter adapter = (PlayListAdapter)listContent.getAdapter();
-
+    @Test
+    public void testSongsCounts2() throws Exception {
         PlaylistSource source = mock(PlaylistSourceImpl.class);
         File[] files = new File[] {new File("first.mp3"), new File("second.mp3")};
         when(source.getFiles()).thenReturn(files);
@@ -45,11 +49,24 @@ public class PlaylistActivityFilesytemTest {
         // также используется для динамического добавления элементов
         // http://stackoverflow.com/questions/4540754/dynamically-add-elements-to-a-listview-android
         adapter.notifyDataSetChanged();
+
+        // Утверждаем что у нас 2 песни
+        assertThat(listContent.getCount()).isSameAs(2);
     }
 
     @Test
-    public void testSongsCounts() throws Exception {
-        // Утверждаем что у нас 3 песни
-        assertThat(listContent.getCount()).isSameAs(2);
+    public void testSongsCounts0() throws Exception {
+        PlaylistSource source = mock(PlaylistSourceImpl.class);
+        when(source.getFiles()).thenReturn(null);
+
+        adapter.setPlaylistSource(source);
+        adapter.initAdapter();
+
+        // также используется для динамического добавления элементов
+        // http://stackoverflow.com/questions/4540754/dynamically-add-elements-to-a-listview-android
+        adapter.notifyDataSetChanged();
+
+        // Утверждаем что у нас нет песен
+        assertThat(listContent.getCount()).isSameAs(0);
     }
 } 
