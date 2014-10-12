@@ -38,6 +38,7 @@ public class PlaylistManagerImpl implements PlaylistManager {
                     //}
                 }
                 playlists.add(playlist);
+                break;
             default:
                 throw new UnsupportedOperationException();
         }

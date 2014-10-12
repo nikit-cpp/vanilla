@@ -5,10 +5,7 @@ import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.github.nikit.cpp.aa.PlayListAdapter;
-import org.androidannotations.annotations.AfterViews;
-import org.androidannotations.annotations.Bean;
-import org.androidannotations.annotations.EActivity;
-import org.androidannotations.annotations.ViewById;
+import org.androidannotations.annotations.*;
 import org.kreed.vanilla.R;
 
 /**
@@ -23,7 +20,13 @@ public class LibraryActivity extends Activity {
     PlayListAdapter adapter;
 
     @AfterViews
-    void bindAdapter() {
+    void refresh(){
         listContent.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+    }
+
+    @AfterInject
+    void bindAdapter() {
+
     }
 }
