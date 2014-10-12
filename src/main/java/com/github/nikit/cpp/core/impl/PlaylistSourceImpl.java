@@ -22,6 +22,8 @@ public class PlaylistSourceImpl implements PlaylistSource {
     }
     @Override
     public File[] getFiles() {
+        if(dir.listFiles()==null)
+            return null;
         return dir.listFiles()[0].listFiles();
     }
 }

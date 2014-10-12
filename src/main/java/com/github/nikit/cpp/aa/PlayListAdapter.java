@@ -70,6 +70,8 @@ public class PlayListAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
+        if(songs==null)
+            return 0;
         return songs.size();
     }
 

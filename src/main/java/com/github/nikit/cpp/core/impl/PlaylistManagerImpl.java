@@ -28,7 +28,7 @@ public class PlaylistManagerImpl implements PlaylistManager {
         switch (by){
             case DIRECTORY:
                 File[] fSongs = source.getFiles();
-                if(fSongs.length==0){
+                if(fSongs==null || fSongs.length==0){
                     break;
                 }
                 for(File fs: fSongs){
@@ -38,12 +38,11 @@ public class PlaylistManagerImpl implements PlaylistManager {
                     //}
                 }
                 playlists.add(playlist);
-                currentPlaylist = playlist;
-                return playlist;
             default:
                 throw new UnsupportedOperationException();
         }
-        return null;
+        currentPlaylist = playlist;
+        return playlist;
     }
 
     @Override
