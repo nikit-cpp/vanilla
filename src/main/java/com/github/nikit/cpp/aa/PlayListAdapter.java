@@ -26,7 +26,6 @@ public class PlayListAdapter extends BaseAdapter {
 
     List<Song> songs;
 
-    /*@Bean(PlaylistImpl.class)*/
     Playlist playlist;
 
     @Bean(PlaylistManagerImpl.class)
@@ -34,6 +33,10 @@ public class PlayListAdapter extends BaseAdapter {
 
     @Bean(PlaylistSourceImpl.class)
     PlaylistSource src;
+
+    public void setPlaylistSource(PlaylistSource src){
+        this.src=src;
+    }
 
     public Playlist getPlaylist(){
         return playlist;
@@ -43,7 +46,7 @@ public class PlayListAdapter extends BaseAdapter {
     Context context;
 
     @AfterInject
-    void initAdapter() {
+    public void initAdapter() {
         //songs = playlist.findAll();
         try {
             playlist = plm.makeNewPlaylistBy(CreateFrom.DIRECTORY, src);

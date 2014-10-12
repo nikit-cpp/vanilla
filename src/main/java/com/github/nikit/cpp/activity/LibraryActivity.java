@@ -20,13 +20,9 @@ public class LibraryActivity extends Activity {
     PlayListAdapter adapter;
 
     @AfterViews
-    void refresh(){
+    void bindAdapter(){
         listContent.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
 
-    @AfterInject
-    void bindAdapter() {
-
-    }
 }
