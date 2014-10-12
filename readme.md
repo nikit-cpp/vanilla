@@ -17,7 +17,7 @@ Deploing to phone
 `[ERROR]`  
 Возникает из-за отсутствия артефакта `com.android.support:support-v4:jar:19.0.1` в maven-central из-за политики Google. Решается одним из 2-х способов:  
  * скачиванием Android Support Repository из Android SDK Manager:  
-![](http://img-fotki.yandex.ru/get/6741/165433899.1/0_1242a3_78c70b2a_orig)  
+![скачивание Android Support Repository](http://img-fotki.yandex.ru/get/6741/165433899.1/0_1242a3_78c70b2a_orig)  
 и добавлением в pom.xml дополнительного репозитория, в url которого -- file://путь_до_AndroidSupportRepository:  
 `<repositories>`  
 `	<repository>`  
@@ -37,3 +37,20 @@ Deploing to phone
 ![Добавление vanilla в Working directory](http://img-fotki.yandex.ru/get/6839/165433899.1/0_1262ab_cdae88be_orig)  
 плюс Maven -> Reimport и  
 Build -> Rebuild Project
+
+Проект не собирается из IntelliJ IDEA (ANDROID_HOME установлена в .bashrc), хотя собирается из терминала
+--------------------------------------------------------------------------------------------------------
+Пишет ошибку:  
+`[ERROR] Error when generating sources.`  
+`org.apache.maven.plugin.MojoExecutionException: No Android SDK path could be found. You may configure it in the plugin configuration section in the pom file using <sdk><path>...</path></sdk> or <properties><android.sdk.path>...</android.sdk.path></properties> or on command-line using -Dandroid.sdk.path=... or by setting environment variable ANDROID_HOME`  
+
+[Решение](http://stackoverflow.com/questions/11415997/android-maven-plugin-does-not-get-android-home-env-variable-in-eclipse/17074245#17074245
+):  
+If you are using Linux, exporting the ANDROID_HOME in the .bashrc may not work.  
+export ANDROID_HOME=/_you_path_to_/android-sdk-linux  
+
+**For me it works only when I export ANDROID_HOME in the /etc/environment (with root) file like this:**  
+**`ANDROID_HOME=/_you_path_to_/android-sdk-linux`**  
+
+You simply have to **log out, and log in again** for the environment variable to be applied system-wide.  
+Optionally, you could just source it locally to test it out before you do that: $source /etc/environment
