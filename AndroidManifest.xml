@@ -10,15 +10,17 @@
 	<application
 		android:icon="@drawable/icon"
 		android:label="@string/app_name" >
-		<activity android:name="com.github.nikit.cpp.activity.FullPlaybackActivity_"
+        <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+        <activity android:name="com.github.nikit.cpp.activity.LibraryActivity_"
 			android:theme="@style/Playback"
 			android:launchMode="singleTask">
-        <!-- Объявление default activity -->
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+            <!-- Объявление default activity -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-        <activity android:name="com.github.nikit.cpp.activity.LibraryActivity_"/>
+        <activity android:name="com.github.nikit.cpp.activity.FullPlaybackActivity_"/>
     </application>
 </manifest>

@@ -4,9 +4,13 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import com.github.nikit.cpp.CreateFrom;
+import com.github.nikit.cpp.core.PlaylistManager;
+import com.github.nikit.cpp.core.PlaylistSource;
 import com.github.nikit.cpp.core.data.Playlist;
 import com.github.nikit.cpp.core.data.Song;
-import com.github.nikit.cpp.core.data.impl.PlaylistImpl;
+import com.github.nikit.cpp.core.impl.PlaylistManagerImpl;
+import com.github.nikit.cpp.core.impl.PlaylistSourceImpl;
 import org.androidannotations.annotations.AfterInject;
 import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EBean;
@@ -22,11 +26,17 @@ public class PlayListAdapter extends BaseAdapter {
 
     List<Song> songs;
 
-    @Bean(PlaylistImpl.class)
-    Playlist songFinder;
+    /*@Bean(PlaylistImpl.class)*/
+    Playlist playlist;
+
+    @Bean(PlaylistManagerImpl.class)
+    PlaylistManager plm;
+
+    @Bean(PlaylistSourceImpl.class)
+    PlaylistSource src;
 
     public Playlist getPlaylist(){
-        return songFinder;
+        return playlist;
     }
 
     @RootContext
@@ -34,7 +44,13 @@ public class PlayListAdapter extends BaseAdapter {
 
     @AfterInject
     void initAdapter() {
-        songs = songFinder.findAll();
+        //songs = playlist.findAll();
+        try {
+            playlist = plm.makeNewPlaylistBy(CreateFrom.DIRECTORY, src);
+            songs = playlist.findAll();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

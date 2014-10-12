@@ -1,5 +1,6 @@
 package com.github.nikit.cpp.core;
 
+import com.github.nikit.cpp.CreateFrom;
 import com.github.nikit.cpp.core.data.Playlist;
 
 public interface PlaylistManager extends NextPrevious {
@@ -9,7 +10,7 @@ public interface PlaylistManager extends NextPrevious {
 	 * @param by - EditableTag, Date(для хронологического списка) или File (папка)
 	 * @return
 	 */
-	public Playlist makeNewPlaylistBy(Object by, PlaylistSource from);
+	public Playlist makeNewPlaylistBy(CreateFrom by, PlaylistSource source) throws Exception;
 	
 	public Playlist getCurrentPlaylist();
 	public int getPlaylistCount();
