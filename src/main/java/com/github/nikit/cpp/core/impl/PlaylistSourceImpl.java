@@ -18,7 +18,7 @@ import java.util.List;
 public class PlaylistSourceImpl implements PlaylistSource {
     private File dir;
     public PlaylistSourceImpl(){
-        dir = new File("/storage/sdcard0/Sounds");
+        dir = new File("/sdcard/Sounds");
     }
     @Override
     public File[] getFiles() {

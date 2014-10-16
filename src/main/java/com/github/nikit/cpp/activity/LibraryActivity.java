@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.github.nikit.cpp.aa.PlayListAdapter;
+import com.github.nikit.cpp.core.data.Song;
 import org.androidannotations.annotations.*;
 import org.kreed.vanilla.R;
 
@@ -23,6 +25,12 @@ public class LibraryActivity extends Activity {
     void bindAdapter(){
         listContent.setAdapter(adapter);
         adapter.notifyDataSetChanged();
+    }
+
+    @ItemClick
+    public void listContentItemClicked(Song song){
+        // переходим на FullPlaybackActivity
+        Toast.makeText(LibraryActivity.this, song.getName(), Toast.LENGTH_SHORT).show();
     }
 
 }
