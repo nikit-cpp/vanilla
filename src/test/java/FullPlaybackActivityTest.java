@@ -32,7 +32,7 @@ public class FullPlaybackActivityTest {
     public void shouldHaveHappySmiles() throws Exception {
         TextView artist = (TextView) activity.findViewById(R.id.artist);
         ShadowTextView shadowPivotalLogo = Robolectric.shadowOf(artist);
-        assertThat(shadowPivotalLogo.innerText(), equalTo("MontRose"));
+        assertThat(shadowPivotalLogo.innerText(), equalTo("Artist"));
     }
 
     /*@Test

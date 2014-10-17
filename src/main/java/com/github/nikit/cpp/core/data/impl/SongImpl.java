@@ -4,20 +4,28 @@ import com.github.nikit.cpp.core.Image;
 import com.github.nikit.cpp.core.Time;
 import com.github.nikit.cpp.core.data.Song;
 
+import java.io.File;
 import java.util.Date;
 
 /**
  * Created by Ник on 23.09.14.
  */
 public class SongImpl implements Song {
+    private File path;
     private String name;
     private String album;
     private String artist;
 
-    public SongImpl(String artist, String name, String album){
+    public SongImpl(File path, String artist, String name, String album){
+        this.path = path;
         this.name=name;
         this.album=album;
         this.artist=artist;
+    }
+
+    @Override
+    public File getPath() {
+        return path;
     }
 
     @Override

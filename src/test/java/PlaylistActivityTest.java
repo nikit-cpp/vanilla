@@ -1,3 +1,4 @@
+import android.content.Intent;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -8,7 +9,6 @@ import com.github.nikit.cpp.activity.LibraryActivity;
 import com.github.nikit.cpp.activity.LibraryActivity_;
 import com.github.nikit.cpp.core.data.Song;
 import com.github.nikit.cpp.core.data.impl.SongImpl;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -16,8 +16,9 @@ import org.junit.runner.RunWith;
 import org.kreed.vanilla.R;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
+import org.robolectric.shadows.ShadowActivity;
+import org.robolectric.shadows.ShadowIntent;
 import org.robolectric.shadows.ShadowListView;
-import org.robolectric.shadows.ShadowTextView;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 
@@ -33,9 +34,9 @@ public class PlaylistActivityTest {
         activity = Robolectric.buildActivity(LibraryActivity_.class).create().get();
         listContent = (ListView) activity.findViewById(R.id.listContent);
 
-        Song s1 = new SongImpl("AC/DC", "Big gun", "Big gun album");
-        Song s2 = new SongImpl("Black Sabbath", "No Strange To Love", "Seventh Star");
-        Song s3 = new SongImpl("Ken Hensley", "Out of my control", "Running blind");
+        Song s1 = new SongImpl(null, "AC/DC", "Big gun", "Big gun album");
+        Song s2 = new SongImpl(null, "Black Sabbath", "No Strange To Love", "Seventh Star");
+        Song s3 = new SongImpl(null, "Ken Hensley", "Out of my control", "Running blind");
 
         PlayListAdapter adapter = (PlayListAdapter)listContent.getAdapter();
 
@@ -79,5 +80,26 @@ public class PlaylistActivityTest {
     public void testSongsCounts() throws Exception {
         // Утверждаем что у нас 3 песни
         assertThat(listContent.getCount()).isSameAs(3);
+    }
+
+    @Test
+    public void testStartActivity() throws Exception {
+        final String ACDC = "AC/DC";
+        ShadowListView shadowedList = Robolectric.shadowOf(listContent);
+        int acdcIndex = shadowedList.findIndexOfItemContainingText(ACDC);
+        shadowedList.performItemClick(acdcIndex);
+
+        ShadowActivity shadowActivity = Robolectric.shadowOf(activity);
+        Intent startedIntent = shadowActivity.getNextStartedActivity();
+        ShadowIntent shadowIntent = Robolectric.shadowOf(startedIntent);
+        assertThat(shadowIntent.getComponent().getClassName()).isSameAs(FullPlaybackActivity_.class.getName());
+
+        FullPlaybackActivity fullPlaybackActivity = Robolectric.buildActivity(FullPlaybackActivity_.class)
+                .withIntent(startedIntent)
+                .create()
+                .get();
+        ShadowActivity playback = Robolectric.shadowOf(fullPlaybackActivity);
+        TextView artist = (TextView) playback.findViewById(R.id.artist);
+        assertThat(artist.getText()).isSameAs(ACDC);
     }
 } 

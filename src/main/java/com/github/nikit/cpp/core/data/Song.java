@@ -3,10 +3,11 @@ package com.github.nikit.cpp.core.data;
 import com.github.nikit.cpp.core.Image;
 import com.github.nikit.cpp.core.Time;
 
+import java.io.File;
 import java.util.Date;
 
 public interface Song {
-	// TODO автоматически сделать геттеры (вместо сеттеров -- конструктор для EditableTag и NonEditableInfo
+	File getPath();
 	String getName();
 	String getAlbum();
 	String getArtist();

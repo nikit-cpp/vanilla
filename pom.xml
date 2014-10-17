@@ -35,6 +35,11 @@
             <artifactId>androidannotations-api</artifactId>
             <version>${androidannotations.version}</version>
         </dependency>
+        <dependency>
+            <groupId>de.greenrobot</groupId>
+            <artifactId>eventbus</artifactId>
+            <version>2.2.1</version>
+        </dependency>
 
         <dependency>
             <groupId>junit</groupId>

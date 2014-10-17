@@ -1,9 +1,9 @@
 package com.github.nikit.cpp.activity;
 
 import android.app.Activity;
-import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
+import com.github.nikit.cpp.events.SongChangedEvent;
+import de.greenrobot.event.EventBus;
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
@@ -18,12 +18,27 @@ public class FullPlaybackActivity extends Activity {
     @ViewById
     TextView artist;
 
-    /*@Override public void onCreate(Bundle state) {
-        super.onCreate(state);
-        setContentView( R.layout.full_playback);
-    }*/
+    @ViewById
+    TextView title;
+
     @AfterViews
     void initViews() {
-        artist.setText("MontRose");
+        SongChangedEvent e = EventBus.getDefault().removeStickyEvent(SongChangedEvent.class);
+        if(e!=null) {
+            artist.setText(e.song.getArtist());
+            title.setText(e.song.getName());
+            e.song = null;
+        }
+    }
+
+    public void onEventMainThread(Object o){
+        EventBus.getDefault().registerSticky(this);
+    }
+
+    @Override
+    public void onPause()
+    {
+        super.onPause();
+        EventBus.getDefault().unregister(this);
     }
 }

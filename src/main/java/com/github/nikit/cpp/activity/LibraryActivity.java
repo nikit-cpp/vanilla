@@ -1,12 +1,13 @@
 package com.github.nikit.cpp.activity;
 
 import android.app.Activity;
-import android.os.Bundle;
+import android.content.Intent;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 import com.github.nikit.cpp.aa.PlayListAdapter;
 import com.github.nikit.cpp.core.data.Song;
+import com.github.nikit.cpp.events.SongChangedEvent;
+import de.greenrobot.event.EventBus;
 import org.androidannotations.annotations.*;
 import org.kreed.vanilla.R;
 
@@ -31,6 +32,11 @@ public class LibraryActivity extends Activity {
     public void listContentItemClicked(Song song){
         // переходим на FullPlaybackActivity
         Toast.makeText(LibraryActivity.this, song.getName(), Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, FullPlaybackActivity_.class);
+
+        EventBus.getDefault().postSticky(new SongChangedEvent(song));
+
+        startActivity(intent);
     }
 
 }
