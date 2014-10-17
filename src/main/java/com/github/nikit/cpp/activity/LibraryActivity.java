@@ -34,6 +34,7 @@ public class LibraryActivity extends Activity {
         Toast.makeText(LibraryActivity.this, song.getName(), Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, FullPlaybackActivity_.class);
 
+        // Перед началом Activity, чтобы не было исключения
         EventBus.getDefault().postSticky(new SongChangedEvent(song));
 
         startActivity(intent);
