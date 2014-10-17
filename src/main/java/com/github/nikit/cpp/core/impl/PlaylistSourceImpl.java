@@ -18,12 +18,10 @@ import java.util.List;
 public class PlaylistSourceImpl implements PlaylistSource {
     private File dir;
     public PlaylistSourceImpl(){
-        dir = new File("/sdcard/Sounds");
+        dir = new File("/sdcard/Sounds/Digital");
     }
     @Override
     public File[] getFiles() {
-        if(dir.listFiles()==null)
-            return null;
-        return dir.listFiles()[0].listFiles();
+        return dir.listFiles();
     }
 }
