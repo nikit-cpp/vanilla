@@ -2,11 +2,14 @@ package com.github.nikit.cpp.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.github.nikit.cpp.events.SongChangedEvent;
 import de.greenrobot.event.EventBus;
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.SeekBarProgressChange;
 import org.androidannotations.annotations.ViewById;
 import org.kreed.vanilla.R;
 
@@ -24,7 +27,6 @@ public class FullPlaybackActivity extends Activity {
 
     @ViewById
     TextView album;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -50,5 +52,10 @@ public class FullPlaybackActivity extends Activity {
     }
 
     public void onEvent(Object stub){
+    }
+
+    @SeekBarProgressChange(R.id.seek_bar)
+    void onProgressChangeOnSeekBar(SeekBar seekBar, int progress) {
+        Toast.makeText(this, "p " + progress, Toast.LENGTH_SHORT).show();
     }
 }
