@@ -2,14 +2,16 @@ package com.github.nikit.cpp.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.Toast;
 import com.github.nikit.cpp.aa.PlayListAdapter;
 import com.github.nikit.cpp.core.data.Song;
+import com.github.nikit.cpp.core.data.impl.SongImpl;
 import com.github.nikit.cpp.events.SongChangedEvent;
-import de.greenrobot.event.EventBus;
 import org.androidannotations.annotations.*;
 import org.kreed.vanilla.R;
+import org.parceler.Parcels;
 
 /**
  * Created by Ник on 24.09.14.
@@ -34,8 +36,9 @@ public class LibraryActivity extends Activity {
         Toast.makeText(LibraryActivity.this, song.getName(), Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, FullPlaybackActivity_.class);
 
-        // Перед началом Activity, чтобы не было исключения
-        EventBus.getDefault().postSticky(new SongChangedEvent(song));
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(Song.class.getCanonicalName(), Parcels.wrap(/*(SongImpl)*/song));
+        intent.putExtras(bundle);
 
         startActivity(intent);
     }

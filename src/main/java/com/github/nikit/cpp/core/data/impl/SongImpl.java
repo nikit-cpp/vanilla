@@ -3,6 +3,8 @@ package com.github.nikit.cpp.core.data.impl;
 import com.github.nikit.cpp.core.Image;
 import com.github.nikit.cpp.core.Time;
 import com.github.nikit.cpp.core.data.Song;
+import org.parceler.Parcel;
+import org.parceler.ParcelConstructor;
 
 import java.io.File;
 import java.util.Date;
@@ -10,12 +12,14 @@ import java.util.Date;
 /**
  * Created by Ник on 23.09.14.
  */
+@Parcel
 public class SongImpl implements Song {
     private File path;
     private String name;
     private String album;
     private String artist;
 
+    @ParcelConstructor
     public SongImpl(File path, String artist, String name, String album){
         this.path = path;
         this.name=name;
