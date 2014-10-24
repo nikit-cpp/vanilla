@@ -53,9 +53,6 @@ public class FullPlaybackActivity extends Activity {
         }
     }
 
-    public void onEvent(Object stub){
-    }
-
     @SeekBarProgressChange(R.id.seek_bar)
     void onProgressChangeOnSeekBar(SeekBar seekBar, int progress) {
         Toast.makeText(this, "p " + progress, Toast.LENGTH_SHORT).show();

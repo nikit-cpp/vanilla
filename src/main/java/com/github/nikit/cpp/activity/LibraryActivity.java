@@ -36,9 +36,7 @@ public class LibraryActivity extends Activity {
         Toast.makeText(LibraryActivity.this, song.getName(), Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, FullPlaybackActivity_.class);
 
-        Bundle bundle = new Bundle();
-        bundle.putParcelable(Song.class.getCanonicalName(), Parcels.wrap(/*(SongImpl)*/song));
-        intent.putExtras(bundle);
+        intent.putExtra(Song.class.getCanonicalName(), Parcels.wrap(song));
 
         startActivity(intent);
     }
