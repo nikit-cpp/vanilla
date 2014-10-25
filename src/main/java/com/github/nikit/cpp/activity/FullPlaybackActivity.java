@@ -9,7 +9,6 @@ import android.widget.Toast;
 import com.github.nikit.cpp.core.data.Song;
 import com.github.nikit.cpp.core.data.impl.SongImpl;
 import com.github.nikit.cpp.core.data.impl.SongImpl$$Parcelable;
-import com.github.nikit.cpp.events.SongChangedEvent;
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.SeekBarProgressChange;

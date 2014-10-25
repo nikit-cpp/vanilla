@@ -8,7 +8,6 @@ import android.widget.Toast;
 import com.github.nikit.cpp.aa.PlayListAdapter;
 import com.github.nikit.cpp.core.data.Song;
 import com.github.nikit.cpp.core.data.impl.SongImpl;
-import com.github.nikit.cpp.events.SongChangedEvent;
 import org.androidannotations.annotations.*;
 import org.kreed.vanilla.R;
 import org.parceler.Parcels;
