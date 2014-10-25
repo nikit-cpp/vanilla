@@ -62,7 +62,7 @@ public class PlaylistImpl implements Playlist {
     }
 
     @Override
-    public List<Song> findAll() {
+    public List<Song> getAllSongs() {
         return songs;
     }
 

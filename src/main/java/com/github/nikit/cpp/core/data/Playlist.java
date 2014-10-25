@@ -23,5 +23,5 @@ public interface Playlist extends NextPrevious {
 	 */
 	public void sortBy(Object sorter, boolean direction);
 
-    public List<Song> findAll();
+    public List<Song> getAllSongs();
 }

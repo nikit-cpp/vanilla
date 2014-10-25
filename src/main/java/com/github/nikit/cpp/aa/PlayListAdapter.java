@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import com.github.nikit.cpp.CreateFrom;
 import com.github.nikit.cpp.core.PlaylistSource;
 import com.github.nikit.cpp.core.data.Playlist;
 import com.github.nikit.cpp.core.data.Song;
@@ -47,7 +46,7 @@ public class PlayListAdapter extends BaseAdapter {
     public void initAdapter() {
         try {
             playlist = createPlaylist(src);
-            songs = playlist.findAll();
+            songs = playlist.getAllSongs();
         } catch (Exception e) {
             e.printStackTrace();
         }
