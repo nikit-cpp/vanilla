@@ -9,31 +9,31 @@ import android.widget.TextView;
 import com.github.nikit.cpp.core.data.Playlist;
 import com.github.nikit.cpp.core.data.Song;
 import com.github.nikit.cpp.core.data.impl.PlaylistImpl;
-import org.androidannotations.annotations.AfterViews;
-import org.androidannotations.annotations.Bean;
-import org.androidannotations.annotations.EFragment;
-import org.androidannotations.annotations.ViewById;
+import com.github.nikit.cpp.core.data.impl.PlaylistImpl_;
 import org.kreed.vanilla.R;
 
 /**
  * Created by nik on 26.10.14.
  */
-@EFragment(R.layout.full_playback_fragment)
 public class FullPlaybackActivityFragment extends Fragment{
-    @ViewById
+
     TextView artist;
 
-    @ViewById
     TextView title;
 
-    @ViewById
     TextView album;
 
-    @Bean(value = PlaylistImpl.class)
     Playlist playlist;
 
-    @AfterViews
-    void initViews() {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.full_playback_fragment, container, false);
+
+        playlist = PlaylistImpl_.getInstance_(getActivity());
+
+        artist = (TextView)view.findViewById(R.id.artist);
+        title = (TextView)view.findViewById(R.id.title);
+        album = (TextView)view.findViewById(R.id.album);
+
         Song e = playlist.getCurrentSong();
         if(e!=null) {
             artist.setText(e.getArtist());
@@ -41,6 +41,6 @@ public class FullPlaybackActivityFragment extends Fragment{
             album.setText(e.getAlbum());
             e = null;
         }
+        return view;
     }
-
 }

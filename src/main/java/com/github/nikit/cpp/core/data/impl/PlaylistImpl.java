@@ -29,6 +29,11 @@ public class PlaylistImpl implements Playlist {
     }
 
     @Override
+    public int getCurrentSongNumber(){
+        return current;
+    }
+
+    @Override
     public Song getSongByNumber(int number) {
         return songs.get(number);
     }

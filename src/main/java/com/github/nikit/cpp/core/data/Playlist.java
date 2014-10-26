@@ -9,6 +9,7 @@ public interface Playlist extends NextPrevious {
 	public int getSongsCount();
 	public Song getSongByNumber(int number);
 	public Song getCurrentSong();
+    public int getCurrentSongNumber();
 
     void setCurrentSong(int newCurrentNumber);
 
