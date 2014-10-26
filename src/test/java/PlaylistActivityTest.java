@@ -40,6 +40,7 @@ public class PlaylistActivityTest {
 
         PlayListAdapter adapter = (PlayListAdapter)listContent.getAdapter();
 
+        adapter.getPlaylist().deleteAllSongs();
         adapter.getPlaylist().addSong(s1);
         adapter.getPlaylist().addSong(s2);
         adapter.getPlaylist().addSong(s3);

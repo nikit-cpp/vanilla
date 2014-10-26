@@ -24,4 +24,6 @@ public interface Playlist extends NextPrevious {
 	public void sortBy(Object sorter, boolean direction);
 
     public List<Song> getAllSongs();
+
+    public void deleteAllSongs();
 }

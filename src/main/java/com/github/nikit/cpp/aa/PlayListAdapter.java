@@ -26,6 +26,7 @@ public class PlayListAdapter extends BaseAdapter {
 
     List<Song> songs;
 
+    @Bean(value = PlaylistImpl.class)
     Playlist playlist;
 
     @Bean(PlaylistSourceImpl.class)
@@ -45,7 +46,7 @@ public class PlayListAdapter extends BaseAdapter {
     @AfterInject
     public void initAdapter() {
         try {
-            playlist = createPlaylist(src);
+            fillPlaylist(src);
             songs = playlist.getAllSongs();
         } catch (Exception e) {
             e.printStackTrace();
@@ -82,15 +83,13 @@ public class PlayListAdapter extends BaseAdapter {
         return position;
     }
 
-    private Playlist createPlaylist(PlaylistSource source){
-        Playlist playlist = new PlaylistImpl();
+    private void fillPlaylist(PlaylistSource source){
         File[] fSongs = source.getFiles();
         if(fSongs!=null){
-        for(File file: fSongs){
-            Song s = new SongImpl(file, file.getAbsolutePath(), file.getName(), "Album88");
-            playlist.addSong(s);
-        }}
-
-        return playlist;
+            for(File file: fSongs){
+                Song s = new SongImpl(file, file.getAbsolutePath(), file.getName(), "Album88");
+                playlist.addSong(s);
+            }
+        }
     }
 }

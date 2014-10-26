@@ -6,13 +6,11 @@ import android.os.Bundle;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.github.nikit.cpp.core.data.Playlist;
 import com.github.nikit.cpp.core.data.Song;
+import com.github.nikit.cpp.core.data.impl.PlaylistImpl;
 import com.github.nikit.cpp.core.data.impl.SongImpl;
-import com.github.nikit.cpp.core.data.impl.SongImpl$$Parcelable;
-import org.androidannotations.annotations.AfterViews;
-import org.androidannotations.annotations.EActivity;
-import org.androidannotations.annotations.SeekBarProgressChange;
-import org.androidannotations.annotations.ViewById;
+import org.androidannotations.annotations.*;
 import org.kreed.vanilla.R;
 import org.parceler.Parcels;
 
@@ -31,6 +29,9 @@ public class FullPlaybackActivity extends Activity {
     @ViewById
     TextView album;
 
+    @Bean(value = PlaylistImpl.class)
+    Playlist playlist;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,13 +44,15 @@ public class FullPlaybackActivity extends Activity {
 
     @AfterViews
     void initViews() {
-        Song e = Parcels.unwrap(getIntent().getParcelableExtra(Song.class.getCanonicalName()));
+        //int songPosition = getIntent().getIntExtra(LibraryActivity.SONG_POSITION, 0);
+        Song e = playlist.getCurrentSong();
         if(e!=null) {
             artist.setText(e.getArtist());
             title.setText(e.getName());
             album.setText(e.getAlbum());
             e = null;
         }
+
     }
 
     @SeekBarProgressChange(R.id.seek_bar)

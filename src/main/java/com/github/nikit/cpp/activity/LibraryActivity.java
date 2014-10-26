@@ -6,10 +6,13 @@ import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.Toast;
 import com.github.nikit.cpp.aa.PlayListAdapter;
+import com.github.nikit.cpp.core.data.Playlist;
 import com.github.nikit.cpp.core.data.Song;
+import com.github.nikit.cpp.core.data.impl.PlaylistImpl;
 import com.github.nikit.cpp.core.data.impl.SongImpl;
 import org.androidannotations.annotations.*;
 import org.kreed.vanilla.R;
+import static org.parceler.Parcels.*;
 import org.parceler.Parcels;
 
 /**
@@ -17,11 +20,15 @@ import org.parceler.Parcels;
  */
 @EActivity(R.layout.library_content)
 public class LibraryActivity extends Activity {
+    public static final String SONG_POSITION = "songPosition";
     @ViewById
     ListView listContent;
 
     @Bean
     PlayListAdapter adapter;
+
+    @Bean(value = PlaylistImpl.class)
+    Playlist playlist;
 
     @AfterViews
     void bindAdapter(){
@@ -30,13 +37,9 @@ public class LibraryActivity extends Activity {
     }
 
     @ItemClick
-    public void listContentItemClicked(Song song){
-        // переходим на FullPlaybackActivity
-        Toast.makeText(LibraryActivity.this, song.getName(), Toast.LENGTH_SHORT).show();
+    public void listContentItemClicked(int position){
+        playlist.setCurrentSong(position);
         Intent intent = new Intent(this, FullPlaybackActivity_.class);
-
-        intent.putExtra(Song.class.getCanonicalName(), Parcels.wrap(song));
-
         startActivity(intent);
     }
 

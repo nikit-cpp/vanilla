@@ -7,6 +7,7 @@ import com.github.nikit.cpp.core.Playback;
 import com.github.nikit.cpp.core.data.Playlist;
 import com.github.nikit.cpp.core.data.Song;
 import org.androidannotations.annotations.EBean;
+import org.parceler.Parcel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,10 +15,12 @@ import java.util.List;
 /**
  * Created by Ник on 23.09.14.
  */
-@EBean
+//@Parcel
+@EBean(scope = EBean.Scope.Singleton)
 public class PlaylistImpl implements Playlist {
     private List<Song> songs = new ArrayList<Song>();
-    private int current=0;
+    public static final int NO_SONGS = -1;
+    private int current=NO_SONGS;
 
     public PlaylistImpl(){
     }
@@ -33,7 +36,7 @@ public class PlaylistImpl implements Playlist {
 
     @Override
     public Song getCurrentSong() {
-        return songs.get(current);
+        return (current==NO_SONGS) ? null : songs.get(current);
     }
 
     @Override
@@ -54,6 +57,11 @@ public class PlaylistImpl implements Playlist {
     @Override
     public void deleteSongByNumber(int number) {
         songs.remove(number);
+    }
+
+    @Override
+    public void deleteAllSongs() {
+        songs.clear();
     }
 
     @Override

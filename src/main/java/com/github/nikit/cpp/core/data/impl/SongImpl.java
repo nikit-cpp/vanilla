@@ -12,7 +12,7 @@ import java.util.Date;
 /**
  * Created by Ник on 23.09.14.
  */
-@Parcel
+//@Parcel
 public class SongImpl implements Song {
     private File path;
     private String name;
