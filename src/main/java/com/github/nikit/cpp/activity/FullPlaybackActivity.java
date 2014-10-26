@@ -3,6 +3,8 @@ package com.github.nikit.cpp.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,6 +31,9 @@ public class FullPlaybackActivity extends Activity {
     @ViewById
     TextView album;
 
+    @ViewById
+    ViewPager full_playback_fragment;
+
     @Bean(value = PlaylistImpl.class)
     Playlist playlist;
 
@@ -44,7 +49,6 @@ public class FullPlaybackActivity extends Activity {
 
     @AfterViews
     void initViews() {
-        //int songPosition = getIntent().getIntExtra(LibraryActivity.SONG_POSITION, 0);
         Song e = playlist.getCurrentSong();
         if(e!=null) {
             artist.setText(e.getArtist());
@@ -52,6 +56,27 @@ public class FullPlaybackActivity extends Activity {
             album.setText(e.getAlbum());
             e = null;
         }
+
+        pager = (ViewPager) findViewById(R.id.pager);
+        pagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager());
+        pager.setAdapter(pagerAdapter);
+
+        pager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+
+            @Override
+            public void onPageSelected(int position) {
+                Log.d(TAG, "onPageSelected, position = " + position);
+            }
+
+            @Override
+            public void onPageScrolled(int position, float positionOffset,
+                                       int positionOffsetPixels) {
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+            }
+        });
 
     }
 

@@ -7,47 +7,13 @@
               android:layout_height="match_parent"
               android:gravity="bottom"
               android:weightSum="1">
-    <LinearLayout
-            android:layout_height="wrap_content"
-            android:layout_width="fill_parent"
-            android:layout_marginLeft="5dip"
-            android:layout_marginRight="5dip"
-            android:layout_gravity="center"
-            android:orientation="vertical">
-        <TextView
-                android:id="@+id/title"
-                android:textSize="20sp"
-                android:singleLine="true"
-                android:gravity="center_vertical"
-                android:ellipsize="marquee"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="Title"/>
-        <TextView
-                android:id="@+id/artist"
-                android:textSize="18sp"
-                android:singleLine="true"
-                android:gravity="center_vertical"
-                android:ellipsize="marquee"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="Artist"/>
-        <TextView
-                android:id="@+id/album"
-                android:textSize="14sp"
-                android:singleLine="true"
-                android:gravity="center_vertical"
-                android:ellipsize="marquee"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="Album"/>
-    </LinearLayout>
-    <ImageView
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:id="@+id/imageView"
-            android:layout_weight="1"
-            android:src="@drawable/cover"/>
+    <!-- fragment -->
+    <android.support.v4.view.ViewPager
+        android:id="@+id/playback_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </android.support.v4.view.ViewPager>
+
     <LinearLayout
             android:id="@+id/controls_top"
             android:layout_height="wrap_content"
