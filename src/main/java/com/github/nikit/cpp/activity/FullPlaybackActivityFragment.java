@@ -25,16 +25,25 @@ public class FullPlaybackActivityFragment extends Fragment{
 
     Playlist playlist;
 
+    Song e;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        playlist = PlaylistImpl_.getInstance_(getActivity());
+
+    }
+
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.full_playback_fragment, container, false);
-
-        playlist = PlaylistImpl_.getInstance_(getActivity());
 
         artist = (TextView)view.findViewById(R.id.artist);
         title = (TextView)view.findViewById(R.id.title);
         album = (TextView)view.findViewById(R.id.album);
 
         Song e = playlist.getCurrentSong();
+
         if(e!=null) {
             artist.setText(e.getArtist());
             title.setText(e.getName());

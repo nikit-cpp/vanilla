@@ -42,10 +42,11 @@ public class FullPlaybackActivity extends FragmentActivity {
         pagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager());
         pager.setAdapter(pagerAdapter);
 
-        /*pager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        pager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
             @Override
             public void onPageSelected(int position) {
+                playlist.setCurrentSong(position);
 
             }
 
@@ -57,7 +58,7 @@ public class FullPlaybackActivity extends FragmentActivity {
             @Override
             public void onPageScrollStateChanged(int state) {
             }
-        });*/
+        });
 
         int currentSong = playlist.getCurrentSongNumber();
         pager.setCurrentItem(currentSong);
