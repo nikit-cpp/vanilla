@@ -12,14 +12,12 @@ import java.util.Date;
 /**
  * Created by Ник on 23.09.14.
  */
-//@Parcel
 public class SongImpl implements Song {
     private File path;
     private String name;
     private String album;
     private String artist;
 
-    @ParcelConstructor
     public SongImpl(File path, String artist, String name, String album){
         this.path = path;
         this.name=name;

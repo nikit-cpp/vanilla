@@ -46,8 +46,9 @@ public class PlayListAdapter extends BaseAdapter {
     @AfterInject
     public void initAdapter() {
         try {
+            clearPlaylist();
             rebuildPlaylist(src);
-            notifyDataSetChanged();
+            updatePlaylist();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -83,10 +84,12 @@ public class PlayListAdapter extends BaseAdapter {
         return position;
     }
 
-    private void rebuildPlaylist(PlaylistSource source){
+    public void clearPlaylist(){
         if(songs!=null)
             songs.clear();
+    }
 
+    public void rebuildPlaylist(PlaylistSource source){
         File[] fSongs = source.getFiles();
         if(fSongs!=null){
             for(File file: fSongs){
@@ -94,7 +97,10 @@ public class PlayListAdapter extends BaseAdapter {
                 playlist.addSong(s);
             }
         }
+    }
 
+    public void updatePlaylist(){
         songs = playlist.getAllSongs();
+        notifyDataSetChanged();
     }
 }

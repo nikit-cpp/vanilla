@@ -23,7 +23,7 @@ import static org.mockito.Mockito.*;
 
 
 @RunWith(RobolectricTestRunner.class)
-public class PlaylistActivityFilesytemTest {
+public class LibraryActivityFilesytemTest {
 
     private LibraryActivity activity;
     private ListView listContent;

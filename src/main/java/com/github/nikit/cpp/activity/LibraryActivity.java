@@ -20,7 +20,6 @@ import org.parceler.Parcels;
  */
 @EActivity(R.layout.library_content)
 public class LibraryActivity extends Activity {
-    public static final String SONG_POSITION = "songPosition";
     @ViewById
     ListView listContent;
 
@@ -33,7 +32,6 @@ public class LibraryActivity extends Activity {
     @AfterViews
     void bindAdapter(){
         listContent.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
     }
 
     @ItemClick

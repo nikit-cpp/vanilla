@@ -15,7 +15,6 @@ import java.util.List;
 /**
  * Created by Ник on 23.09.14.
  */
-//@Parcel
 @EBean(scope = EBean.Scope.Singleton)
 public class PlaylistImpl implements Playlist {
     private List<Song> songs = new ArrayList<Song>();

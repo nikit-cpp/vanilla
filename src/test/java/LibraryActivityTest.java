@@ -24,7 +24,7 @@ import static org.fest.assertions.api.Assertions.assertThat;
 
 
 @RunWith(RobolectricTestRunner.class)
-public class PlaylistActivityTest {
+public class LibraryActivityTest {
 
     private LibraryActivity activity;
     private ListView listContent;
@@ -47,7 +47,7 @@ public class PlaylistActivityTest {
 
         // также используется для динамического добавления элементов
         // http://stackoverflow.com/questions/4540754/dynamically-add-elements-to-a-listview-android
-        adapter.notifyDataSetChanged();
+        adapter.updatePlaylist();
     }
 
     @Ignore
