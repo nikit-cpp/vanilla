@@ -3,6 +3,11 @@ package com.github.nikit.cpp.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.widget.SeekBar;
@@ -20,22 +25,14 @@ import org.parceler.Parcels;
  * The primary playback screen with playback controls and large cover display.
  */
 @EActivity(R.layout.full_playback)
-public class FullPlaybackActivity extends Activity {
+public class FullPlaybackActivity extends FragmentActivity {
 
-    @ViewById
-    TextView artist;
-
-    @ViewById
-    TextView title;
-
-    @ViewById
-    TextView album;
-
-    @ViewById
-    ViewPager full_playback_fragment;
 
     @Bean(value = PlaylistImpl.class)
     Playlist playlist;
+
+    ViewPager pager;
+    PagerAdapter pagerAdapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -49,15 +46,7 @@ public class FullPlaybackActivity extends Activity {
 
     @AfterViews
     void initViews() {
-        Song e = playlist.getCurrentSong();
-        if(e!=null) {
-            artist.setText(e.getArtist());
-            title.setText(e.getName());
-            album.setText(e.getAlbum());
-            e = null;
-        }
-
-        pager = (ViewPager) findViewById(R.id.pager);
+        pager = (ViewPager) findViewById(R.id.playback_pager);
         pagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager());
         pager.setAdapter(pagerAdapter);
 
@@ -65,7 +54,7 @@ public class FullPlaybackActivity extends Activity {
 
             @Override
             public void onPageSelected(int position) {
-                Log.d(TAG, "onPageSelected, position = " + position);
+
             }
 
             @Override
@@ -82,6 +71,24 @@ public class FullPlaybackActivity extends Activity {
 
     @SeekBarProgressChange(R.id.seek_bar)
     void onProgressChangeOnSeekBar(SeekBar seekBar, int progress) {
-        album.setText(String.valueOf(progress));
+
+    }
+
+    private class MyFragmentPagerAdapter extends FragmentPagerAdapter {
+
+        public MyFragmentPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return new FullPlaybackActivityFragment_();
+        }
+
+        @Override
+        public int getCount() {
+            return playlist.getSongsCount();
+        }
+
     }
 }
