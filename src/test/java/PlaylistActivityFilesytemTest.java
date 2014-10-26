@@ -46,10 +46,6 @@ public class PlaylistActivityFilesytemTest {
         adapter.setPlaylistSource(source);
         adapter.initAdapter();
 
-        // также используется для динамического добавления элементов
-        // http://stackoverflow.com/questions/4540754/dynamically-add-elements-to-a-listview-android
-        adapter.notifyDataSetChanged();
-
         // Утверждаем что у нас 2 песни
         assertThat(listContent.getCount()).isSameAs(2);
     }
@@ -61,10 +57,6 @@ public class PlaylistActivityFilesytemTest {
 
         adapter.setPlaylistSource(source);
         adapter.initAdapter();
-
-        // также используется для динамического добавления элементов
-        // http://stackoverflow.com/questions/4540754/dynamically-add-elements-to-a-listview-android
-        adapter.notifyDataSetChanged();
 
         // Утверждаем что у нас нет песен
         assertThat(listContent.getCount()).isSameAs(0);

@@ -19,7 +19,7 @@ import java.util.List;
 @EBean(scope = EBean.Scope.Singleton)
 public class PlaylistImpl implements Playlist {
     private List<Song> songs = new ArrayList<Song>();
-    public static final int NO_SONGS = -1;
+    public static final int NO_SONGS = -2;
     private int current=NO_SONGS;
 
     public PlaylistImpl(){

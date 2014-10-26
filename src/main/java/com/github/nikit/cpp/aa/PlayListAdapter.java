@@ -21,7 +21,7 @@ import java.util.List;
 /**
  * Created by Ник on 25.09.14.
  */
-@EBean
+@EBean(scope = EBean.Scope.Singleton)
 public class PlayListAdapter extends BaseAdapter {
 
     List<Song> songs;
@@ -46,8 +46,8 @@ public class PlayListAdapter extends BaseAdapter {
     @AfterInject
     public void initAdapter() {
         try {
-            fillPlaylist(src);
-            songs = playlist.getAllSongs();
+            rebuildPlaylist(src);
+            notifyDataSetChanged();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -83,7 +83,10 @@ public class PlayListAdapter extends BaseAdapter {
         return position;
     }
 
-    private void fillPlaylist(PlaylistSource source){
+    private void rebuildPlaylist(PlaylistSource source){
+        if(songs!=null)
+            songs.clear();
+
         File[] fSongs = source.getFiles();
         if(fSongs!=null){
             for(File file: fSongs){
@@ -91,5 +94,7 @@ public class PlayListAdapter extends BaseAdapter {
                 playlist.addSong(s);
             }
         }
+
+        songs = playlist.getAllSongs();
     }
 }
