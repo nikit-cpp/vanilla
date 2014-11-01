@@ -18,7 +18,10 @@ public class SongImpl implements Song {
     private String album;
     private String artist;
 
-    public SongImpl(File path, String artist, String name, String album){
+    private int id;
+
+    public SongImpl(int num, File path, String artist, String name, String album){
+        id=num;
         this.path = path;
         this.name=name;
         this.album=album;
@@ -98,5 +101,14 @@ public class SongImpl implements Song {
     @Override
     public Date getModificationDate() {
         return null;
+    }
+
+    @Override
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

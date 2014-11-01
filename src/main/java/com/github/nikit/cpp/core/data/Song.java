@@ -22,4 +22,5 @@ public interface Song {
 	Date getCreationDate();
 	Date getLastAccessDate();
 	Date getModificationDate();
+    int getId();
 }

@@ -31,15 +31,9 @@
             <version>19.1.0</version>
         </dependency>
         <dependency>
-            <groupId>org.androidannotations</groupId>
-            <artifactId>androidannotations</artifactId>
-            <version>${androidannotations.version}</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.androidannotations</groupId>
-            <artifactId>androidannotations-api</artifactId>
-            <version>${androidannotations.version}</version>
+            <groupId>com.jakewharton</groupId>
+            <artifactId>butterknife</artifactId>
+            <version>5.1.2</version>
         </dependency>
         <dependency>
             <groupId>org.parceler</groupId>

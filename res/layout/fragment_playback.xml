@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/root"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:gravity="bottom">
+              <!-- android:weightSum="1"> -->
+
+    <TextView
+        android:id="@+id/title"
+        android:textSize="20sp"
+        android:singleLine="true"
+        android:gravity="center_vertical"
+        android:ellipsize="marquee"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Title"/>
+    <TextView
+        android:id="@+id/artist"
+        android:textSize="18sp"
+        android:singleLine="true"
+        android:gravity="center_vertical"
+        android:ellipsize="marquee"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Artist"/>
+    <TextView
+        android:id="@+id/album"
+        android:textSize="14sp"
+        android:singleLine="true"
+        android:gravity="center_vertical"
+        android:ellipsize="marquee"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Album"/>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/imageView"
+        android:layout_weight="1"
+        android:src="@drawable/cover"/>
+    <LinearLayout
+        android:id="@+id/controls_top"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/elapsed"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:paddingLeft="5dip"
+            android:text="0:00"/>
+        <SeekBar
+            android:id="@+id/seek_bar"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:paddingTop="5dip"
+            android:paddingBottom="5dip"
+            android:paddingLeft="18dip"
+            android:paddingRight="18dip"
+            android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/duration"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:paddingRight="5dip"
+            android:text="99:99"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/controls_bottom"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_gravity="bottom"
+        android:background="#a000"
+        android:orientation="horizontal">
+        <include layout="@layout/controls"/>
+    </LinearLayout>
+</LinearLayout>
