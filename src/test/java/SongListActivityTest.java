@@ -107,5 +107,15 @@ public class SongListActivityTest {
         ShadowActivity playback = shadowOf(playbackPagerActivity);
         TextView artist = (TextView) playback.findViewById(R.id.artist);
         assertThat(artist.getText()).isSameAs(ACDC);
+
+        // Нажимаем кнопку "Назад"
+        playbackPagerActivity.onBackPressed();
+
+        // Проверяем, что активити закрылось
+        assertThat(playback.isFinishing()).isSameAs(true);
+
+        assertThat(activity.isFinishing()).isSameAs(false);
     }
+
+
 } 
