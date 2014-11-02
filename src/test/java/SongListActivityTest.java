@@ -5,6 +5,8 @@ import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
+import com.github.nikit.cpp.activity.PlaybackFragment;
+import com.github.nikit.cpp.activity.PlaybackPagerActivity;
 import com.github.nikit.cpp.activity.SongListActivity;
 import com.github.nikit.cpp.core.data.Song;
 import com.github.nikit.cpp.core.data.impl.PlaylistImpl;
@@ -88,24 +90,22 @@ public class SongListActivityTest {
         assertThat(listContent.getCount()).isSameAs(3);
     }
 
-    /*@Test
+    @Test
     public void testStartActivity() throws Exception {
         final String ACDC = "AC/DC";
-        ShadowListView shadowedList = shadowOf(listContent);
         int acdcIndex = shadowedList.findIndexOfItemContainingText(ACDC);
         shadowedList.performItemClick(acdcIndex);
 
         ShadowActivity shadowActivity = shadowOf(activity);
         Intent startedIntent = shadowActivity.getNextStartedActivity();
         ShadowIntent shadowIntent = shadowOf(startedIntent);
-        assertThat(shadowIntent.getComponent().getClassName()).isSameAs(FullPlaybackActivity_.class.getName());
+        assertThat(shadowIntent.getComponent().getClassName()).isSameAs(PlaybackPagerActivity.class.getName());
 
-        FullPlaybackActivity fullPlaybackActivity = Robolectric.buildActivity(FullPlaybackActivity_.class)
-                .withIntent(startedIntent)
-                .create()
-                .get();
-        ShadowActivity playback = shadowOf(fullPlaybackActivity);
+        // вызов visible() необходим, иначе playback.findViewById(R.id.artist) вернёт null
+        PlaybackPagerActivity playbackPagerActivity = Robolectric.buildActivity(PlaybackPagerActivity.class).withIntent(startedIntent).create().start().visible().get();
+
+        ShadowActivity playback = shadowOf(playbackPagerActivity);
         TextView artist = (TextView) playback.findViewById(R.id.artist);
         assertThat(artist.getText()).isSameAs(ACDC);
-    }*/
+    }
 } 
