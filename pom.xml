@@ -96,11 +96,14 @@
                         <platform>${android.platform}</platform>
                     </sdk>
                     <undeployBeforeDeploy>true</undeployBeforeDeploy>
+                    <release>false</release>
+                    <apkDebug>true</apkDebug>
                 </configuration>
                 <extensions>true</extensions>
             </plugin>
         </plugins>
     </build>
+
     <repositories>
         <repository>
             <id>android-support</id>
