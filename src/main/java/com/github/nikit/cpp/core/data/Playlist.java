@@ -2,6 +2,7 @@ package com.github.nikit.cpp.core.data;
 
 import com.github.nikit.cpp.core.NextPrevious;
 import com.github.nikit.cpp.core.Playback;
+import com.github.nikit.cpp.core.PlaylistSource;
 
 import java.util.List;
 
@@ -27,4 +28,5 @@ public interface Playlist extends NextPrevious {
     public List<Song> getAllSongs();
 
     public void deleteAllSongs();
+
 }
