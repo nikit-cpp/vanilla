@@ -92,8 +92,13 @@ public class SongListActivityTest {
 
     @Test
     public void testStartActivity() throws Exception {
-        final String ACDC = "AC/DC";
-        int acdcIndex = shadowedList.findIndexOfItemContainingText(ACDC);
+        testSwitchToArtict("AC/DC");
+        testSwitchToArtict("Black Sabbath");
+        testSwitchToArtict("Ken Hensley");
+    }
+
+    private void testSwitchToArtict(String artistName){
+        int acdcIndex = shadowedList.findIndexOfItemContainingText(artistName);
         shadowedList.performItemClick(acdcIndex);
 
         ShadowActivity shadowActivity = shadowOf(activity);
@@ -106,7 +111,7 @@ public class SongListActivityTest {
 
         ShadowActivity playback = shadowOf(playbackPagerActivity);
         TextView artist = (TextView) playback.findViewById(R.id.artist);
-        assertThat(artist.getText()).isSameAs(ACDC);
+        assertThat(artist.getText()).isSameAs(artistName);
 
         // Нажимаем кнопку "Назад"
         playbackPagerActivity.onBackPressed();
@@ -116,6 +121,5 @@ public class SongListActivityTest {
 
         assertThat(activity.isFinishing()).isSameAs(false);
     }
-
 
 } 
