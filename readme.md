@@ -54,3 +54,12 @@ export ANDROID_HOME=/_you_path_to_/android-sdk-linux
 
 You simply have to **log out, and log in again** for the environment variable to be applied system-wide.  
 Optionally, you could just source it locally to test it out before you do that: $source /etc/environment
+
+#Проблема java.lang.Object
+The type java.lang.Object cannot be resolved. It is indirectly referenced from required  
+[Решение](http://stackoverflow.com/questions/18075343/java-project-in-eclipse-the-type-java-lang-object-cannot-be-resolved-it-is-ind/18075742#18075742)
+
+* Close the project and reopen it.
+* Clean the project (It will rebuild the buildpath hence reconfiguring with the JDK Libraries)
+OR
+* Delete and Re-import the project and if necessary do the above steps again.
