@@ -1,21 +1,21 @@
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.*;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertThat;
 import static org.robolectric.Robolectric.shadowOf;
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.ListFragment;
 import android.widget.TextView;
+
 import com.github.nikit.cpp.activity.PlaybackFragment;
 import com.github.nikit.cpp.activity.PlaybackPagerActivity;
 import com.github.nikit.cpp.activity.SongListFragment;
 import com.github.nikit.cpp.core.data.Song;
 import com.github.nikit.cpp.core.data.impl.PlaylistImpl;
 import com.github.nikit.cpp.core.data.impl.SongImpl;
+
 import org.fest.assertions.api.Assertions;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.kreed.vanilla.R;
@@ -27,6 +27,7 @@ import org.robolectric.shadows.ShadowToast;
 
 import android.content.Intent;
 import android.widget.Button;
+
 import org.robolectric.util.FragmentTestUtil;
 
 import java.util.List;
@@ -44,6 +45,7 @@ public class PlaybackPagerActivityTest {
         //activity = Robolectric.buildActivity(PlaybackPagerActivity.class).create().start().visible().get();
     }
 
+    @Ignore
     @Test
     public void shouldHaveHappySmiles() throws Exception {
         PlaybackPagerActivity playbackPagerActivity = Robolectric.buildActivity(PlaybackPagerActivity.class).create().start().visible().get();
